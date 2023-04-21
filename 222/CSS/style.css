@@ -1,0 +1,286 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0;}
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;}
+/* reset */    
+li{list-style: none;} /* -->블릿기호삭제 */
+a{text-decoration: none; /* -->밑줄빼기 */
+  color: #333
+}
+
+/* wrap */
+#wrap{width: 1000px; margin: 0 auto;}
+
+#header{}
+#header h1{
+    float:left;
+    width: 110px;
+    padding: 15px 0 0;
+}
+#header h1 a{}
+#header h1 a img{
+    /* 인라인요소는 공간을 인식하지 못함
+    width: 200px 값을 줘도 적용되지 않음
+    인라인요소이면서 공간을 인식하는 요소가 있음
+    -->img/buttom */
+    width: 100%;
+}
+
+
+#header .nav{
+    float: right;}
+#header .nav ul{}
+#header .nav ul li{
+    position: relative;
+    float:left;
+    width: 140px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    /* 나의 자식중에서 inline요소가 있거든 가운데로 정렬하라 */
+    
+}
+#header .nav ul li a{
+    display: block;
+    padding: 24px 20px 20px;
+    transition: 0.3s;
+}
+#header .nav ul li a:hover{
+    /* :hover은 마우스가 영역에 진입하면 */
+    background-color: gray;
+}
+
+#header .nav ul li .submenu{
+    display:  none;
+    position: absolute;
+    left: 0; top: 65px;
+    z-index: 2; /* //1보다 큰값을 준다 거의 10 20 30을 쓴다고 함 */
+}
+#header .nav ul li .submenu li{}
+#header .nav ul li .submenu li a{
+    background-color: #888;
+    padding: 10px;
+    color:#fff
+}
+
+#banner{
+    overflow: hidden;
+}
+#banner .slidelist{
+    width: 3000px;
+    position: relative;
+}
+#banner .slidelist .slideimg{
+    position: relative;
+    float: left;
+    width: 1000px;
+}
+#banner .slidelist .slideimg h2{
+    border: 2px solid #333;
+    width: 100px;
+    text-align: center;
+    background-color: #000000c2;
+    position: absolute;
+    top: 10%; left: 10%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-size: 15px;
+}
+#banner .slidelist .slideimg h3{
+    position: absolute;
+    left: 7%; top: 40%;
+    font-size: 40px;
+}
+
+#banner .slidelist .slideimg h5{
+    position: absolute;
+    left: 3%; top: 40%;
+    font-size: 40px;}
+#banner .slidelist .slideimg h6{
+    position: absolute;
+    left: 4%; top: 60%;
+    font-size: 15px;}
+#banner .slidelist .slideimg h7{
+    position: absolute;
+    left: 8%; top: 75%;
+    font-size: 15px;
+    font-weight: bold;
+}    
+   
+
+#banner .slidelist .slideimg img{
+    width: 100%;
+    border-radius: 20px;
+    /* img태그에  아래쪽에 빈틈 처리
+    원인:img태그가 인라인요소이기 때문
+    1.display:block 요소로 변경하기
+    2.vertical-align:top 으로 변경 */
+    display: block;
+}
+
+#content1{
+    margin-top: 20px;
+}
+#content1 .left{
+    float: left;
+    width: 49%;
+    background-color: #f2f2f2;
+    background-image: url(../img/bg1.jpg);
+    background-repeat: no-repeat;
+    background-size: 80px;
+    /* background-position: x y; */
+    background-position: right 20px center;
+
+    /* background:  #f2f2f2 url(../img/bg1.jpg) no-repeat  right 20px center/80px; */
+    background:  #B9E9FC url(../img/bg1.jpg) no-repeat  right 20px center/80px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#content1 .title{
+    font-size: 26px;
+    padding-bottom: 5px;
+}
+#content1 .desc{
+    font-size: 14px;
+    color: #000;
+    padding-bottom: 15px;
+}
+#content1 .left .btn{
+    background: url(../img/icon1.jpg)no-repeat left center;
+    background-size: 20px;
+    padding-left: 30px;
+}
+
+#content1 .right{
+    width: 49%;
+    float: right;
+    /* background: color image repeat position/size; */
+    background:#B9E9FC url(../img/bg2.jpg)no-repeat right 20px center/80px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#content1 .right .btn{
+    background: url(../img/icon2.jpg)no-repeat left center;
+    background-size: 20px;
+    padding-left: 25px;
+
+}
+#content1 .right .btn em{}
+
+#content2{
+    margin-top: 30px;
+}
+#content2 .tab_menu{}
+#content2 .tab_btn{}
+#content2 .tab_btn ul{}
+#content2 .tab_btn ul li{
+    float:left; margin-right: 15px;
+}
+#content2 .tab_btn ul li a{
+    color:#000;
+    font-size:24px;
+    padding-bottom: 10px;
+    display: block;
+    font-weight: bold;
+}
+#content2 .tab_btn ul li.active a{
+    color: #000;
+}
+
+#content2 .tab_cont{}
+#content2 .tab_cont>div{overflow: hidden;}
+/* float으로 인해 부모가 깨짐현상 막기
+1)clear:both처리하기
+2)overflow:hidden
+3)부모에게 강제로 높이값 주기 */
+#content2 .tab_cont>div figure{
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+    text-align: center;
+}
+#content2 .tab_cont>div figure:last-child{
+    margin-right: 0;
+}
+#content2 .tab_cont>div figure img{width: 100%;}
+#content2 .tab_cont>div figure figcaption{}
+
+/* footer */
+#footer{
+    margin-top: 30px;
+    padding: 20px;
+    overflow: hidden;
+    background-color: #202020;
+}
+#footer h2{
+    float:left;
+}
+#footer h2 img{
+    width: 150px;
+}
+#footer .foot{
+    float:right
+}
+#footer .foot ul{
+    padding-bottom: 10px;
+}
+#footer .foot ul li{
+    display: inline;
+}
+#footer .foot ul li a{
+    color: #fff;
+}
+
+#footer .foot address{
+    color: #ccc;
+    font-style: normal;
+}
+
+/* layer 팝업 */
+.layer-bg{
+    display: none ;
+    position: fixed;
+    left: 0; right: 0;
+    /* width: 500px; */
+/* width: 100%; height: 100%; */
+    top: 0;bottom: 0;
+    background-color: rgba(0,0,0,0.8);}
+
+.layer-bg .layer{
+    width: 500px; height: 500px;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    padding: 20px;
+    background: url("https://img.cjthemarket.com/images/file/display/064/20230228085813306.jpg") no-repeat center center ;
+    background-size: 100%;
+}
+
+
+.layer-bg .layer .stop{
+    position: absolute;
+    background-color: #fff;
+    width: 250px;
+    padding: 10px;
+    height: 50px;
+    text-align: center;
+    left: 200px; top: 541px;
+    display: block;
+}
+.layer-bg .layer .close{
+    position: absolute;
+    right: 0px; bottom: -42px;
+    text-align: center;
+    display: block;
+    border: 1px solid #ccc;
+    width: 250px;
+    padding: 9px;
+    
+}
